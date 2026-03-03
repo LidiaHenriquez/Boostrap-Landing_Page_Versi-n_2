@@ -1,32 +1,37 @@
+
+function saludar() {
+    alert("¡Gracias por visitarnos! Desliza hacia abajo para ver nuestras delicias.");
+    
+    const titulo = document.getElementById('main-title');
+    if (titulo) {
+        titulo.innerText = "¡La mejor experiencia de Sushi!";
+        titulo.style.color = "#C5A059"; 
+    }
+}
+
+
 document.addEventListener('DOMContentLoaded', () => {
-    const headerBg = document.querySelector('.header-bg');
-    const heroContent = document.querySelector('.hero-content');
+    const form = document.getElementById('contactForm');
 
-    
-    window.addEventListener('scroll', () => {
-        let scrollPos = window.scrollY;
-        
-        
-        let blurValue = Math.min(scrollPos / 50, 10);
-        
-        if (headerBg) {
-            headerBg.style.filter = `blur(${blurValue}px)`;
-        }
+    if (form) {
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
 
-        
-        const containerText = document.querySelector('.my-auto');
-        if (containerText) {
-            containerText.style.opacity = 1 - (scrollPos / 600);
-        }
-    });
+            
+            const nombre = document.getElementById('nombre').value;
+            const email = document.getElementById('email').value;
 
-    
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('¡Mensaje enviado con éxito! Nos contactaremos pronto.');
-            contactForm.reset();
+            
+            alert(`¡Gracias, ${nombre}! Hemos recibido tu solicitud. Contactaremos a ${email} pronto.`);
+
+            
+            form.innerHTML = `
+                <div class="text-center py-4">
+                    <i class="fas fa-check-circle fa-3x mb-3" style="color: #C5A059;"></i>
+                    <h4 style="color: #121212;">Reserva Enviada</h4>
+                    <p class="text-muted">Te esperamos pronto en SaboresApp.</p>
+                    <button class="btn btn-outline-dark btn-sm" onclick="location.reload()">Nueva Reserva</button>
+                </div>`;
         });
     }
 });

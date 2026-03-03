@@ -1,132 +1,295 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sushis SaboresApp - Landing Responsiva</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
-
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="./assets/script.js"></script>
     <style>
-        
-        .header-bg {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-                              url('./assets/img/img4.jpg'); 
-                              background-size: 100%auto; 
-  background-repeat:no-repeat;
-  background-position: top center;
-        }
+      body {
+        font-family: "Roboto", sans-serif;
+      }
+
+      .header-bg {
+        background-image:
+          linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+          url("./assets/img/img4.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      .card {
+        transition: transform 0.3s;
+      }
+      .card:hover {
+        transform: translateY(-10px);
+      }
+
+      footer {
+        background-color: #1a1a1a;
+        color: white;
+      }
+      .social-icons a {
+        color: white;
+        font-size: 1.5rem;
+        margin: 0 10px;
+        transition: 0.3s;
+      }
+      .social-icons a:hover {
+        color: #198754;
+      }
     </style>
-</head>
-<body>
-
-    <header class="restaurante vh-100 d-flex flex-column position-relative overflow-hidden">
-        <div class="header-bg position-absolute top-0 start-0 w-100 h-100"></div>
-
-        <nav class="navbar navbar-expand-lg bg-black shadow fixed-top" data-bs-theme="dark">
-            <div class="container">
-                <a class="navbar-brand fw-bold" href="#">SABORES<span class="text-success">APP</span></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link active" href="#">Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#menu">Menú</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-        <div class="container my-auto text-center text-white position-relative" style="z-index: 2;">
-            <h1 class="display-2 fw-bold">El lujo del mar en su máxima expresión.</h1>
-            <p class="lead mb-4">Rolls de autor con los mejores ingredientes del Pacífico.</p>
-            <a href="#menu" class="btn btn-success btn-lg px-5 shadow">Ver Menú</a>
+  </head>
+  <body>
+    <nav
+      class="navbar navbar-expand-lg bg-black shadow fixed-top"
+      data-bs-theme="dark"
+    >
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="#"
+          >SABORES<span class="text-success">APP</span></a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link" href="#menu">Menú</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contacto">Reserva</a>
+            </li>
+          </ul>
         </div>
+      </div>
+    </nav>
+
+    <header
+      class="restaurante vh-100 d-flex flex-column position-relative overflow-hidden"
+    >
+      <div class="header-bg position-absolute top-0 start-0 w-100 h-100"></div>
+      <div
+        class="container my-auto text-center text-white position-relative"
+        style="z-index: 2"
+      >
+        <h1 id="main-title" class="display-2 fw-bold">
+          Más que sushi, una experiencia sublime.
+        </h1>
+        <p class="lead mb-4">
+          Rolls de autor con los mejores ingredientes del Pacífico.
+        </p>
+        <button onclick="saludar()" class="btn btn-success btn-lg px-5 shadow">
+          ¡Bienvenidos!
+        </button>
+        <a href="#menu" class="btn btn-outline-light btn-lg px-5 ms-md-2 shadow"
+          >Ver Menú</a
+        >
+      </div>
     </header>
 
-    <main id="menu" class="container-fluid bg-white py-5 position-relative" style="z-index: 3;">
-        <div class="container">
-            <h2 class="text-center mb-5 fw-bold">Nuestros Productos</h2>
-            
-            <div class="row g-4">
-                <div class="col-12 col-md-4">
-                    <div class="card h-100 shadow-sm border-0">
-                        <img src="./assets/img/Captura de pantalla 2026-02-26 223013.png" class="card-img-top" alt="Brisa Andina">
-                        <div class="card-body text-center">
-                            <h5 class="card-title fw-medium">Roll Brisa Andina</h5>
-                            <p class="card-text text-muted small">Salmón fresco, palta cremosa y queso crema, envuelto en pepino con salsa ponzu.</p>
-                            <p class="text-success fw-bold h4">$8.990</p>
-                            <hr>
-                            <p class="text-secondary small mb-0">
-                                <i class="fas fa-map-marker-alt me-2 text-danger"></i>Centro Histórico
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-4">
-                    <div class="card h-100 shadow-sm border-0">
-                        <img src="./assets/img/2.png" class="card-img-top" alt="Fuego Imperial">
-                        <div class="card-body text-center">
-                            <h5 class="card-title fw-medium">Roll Fuego Imperial</h5>
-                            <p class="card-text text-muted small">Atún rojo y salmón flameado con un toque de ají fresco y salsa teriyaki.</p>
-                            <p class="text-success fw-bold h4">$10.500</p>
-                            <hr>
-                            <p class="text-secondary small mb-0">
-                                <i class="fas fa-map-marker-alt me-2 text-danger"></i>Barrio Italia
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-4">
-                    <div class="card h-100 shadow-sm border-0">
-                        <img src="./assets/img/Captura de pantalla 2026-02-26 221852.png" class="card-img-top" alt="Perla del Pacífico">
-                        <div class="card-body text-center">
-                            <h5 class="card-title fw-medium">Roll Perla del Pacífico</h5>
-                            <p class="card-text text-muted small">Camarón tempura y palta, coronado con salsa de maracuyá y aceite de trufa.</p>
-                            <p class="text-success fw-bold h4">$6.200</p>
-                            <hr>
-                            <p class="text-secondary small mb-0">
-                                <i class="fas fa-map-marker-alt me-2 text-danger"></i>Las Condes
-                            </p>
-                        </div>
-                    </div>
-                </div>
+    <main id="menu" class="container-fluid bg-white py-5">
+      <div class="container">
+        <h2
+          class="text-center mb-5 fw-bold text-uppercase"
+          style="letter-spacing: 2px"
+        >
+          Nuestra Selección Premium
+        </h2>
+        <div class="row g-4">
+          <div class="col-12 col-md-4">
+            <div class="card h-100 shadow-sm border-0 bg-light">
+              <div class="card-img-container p-3">
+                <img
+                  src="./assets/img/andina.png"
+                  class="img-fluid rounded shadow-sm"
+                  alt="Brisa Andina"
+                />
+              </div>
+              <div class="card-body text-center d-flex flex-column">
+                <h5 class="card-title fw-bold">Roll Brisa Andina</h5>
+                <p class="card-text text-muted small flex-grow-1">
+                  Roll envuelto en fina lámina de pepino, relleno de salmón
+                  fresco grado sashimi, palta cremosa y queso crema suave.
+                  Coronado con cubos de mango fresco, gotas de salsa ponzu y
+                  ralladura de limón sutil. Un roll ligero, refrescante y
+                  aromático, perfecto para quienes buscan sabores delicados y
+                  equilibrados con un toque cítrico natural.
+                </p>
+                <p class="text-success fw-bold h4">$8.990</p>
+              </div>
             </div>
+          </div>
+
+          <div class="col-12 col-md-4">
+            <div class="card h-100 shadow-sm border-0 bg-light">
+              <div class="card-img-container p-3">
+                <img
+                  src=".//assets/img/imperial.png"
+                  class="img-fluid rounded shadow-sm"
+                  alt="Fuego Imperial"
+                />
+              </div>
+              <div class="card-body text-center d-flex flex-column">
+                <h5 class="card-title fw-bold">Roll Fuego Imperial</h5>
+                <p class="card-text text-muted small flex-grow-1">
+                  Roll envuelto en láminas de atún rojo, relleno de salmón
+                  flameado, palta y camarón crocante. Bañado en una suave salsa
+                  teriyaki ahumada y coronado con hilos de ají rojo fresco y
+                  sésamo tostado. Intenso, elegante y con un toque ligeramente
+                  picante que realza cada bocado.
+                </p>
+                <p class="text-success fw-bold h4">$10.500</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-4">
+            <div class="card h-100 shadow-sm border-0 bg-light">
+              <div class="card-img-container p-3">
+                <img
+                  src="./assets/img/pacifico.png"
+                  class="img-fluid rounded shadow-sm"
+                  alt="Perla del Pacífico"
+                />
+              </div>
+              <div class="card-body text-center d-flex flex-column">
+                <h5 class="card-title fw-bold">Roll Perla del Pacífico</h5>
+                <p class="card-text text-muted small flex-grow-1">
+                  Roll envuelto en láminas de salmón fresco grado sashimi,
+                  relleno de camarón tempura, palta cremosa y queso crema suave.
+                  Coronado con una delicada salsa de maracuyá y un toque de
+                  aceite de trufa, decorado con sésamo negro tostado. Una
+                  combinación equilibrada entre frescura, crocancia y un final
+                  ligeramente cítrico y elegante..
+                </p>
+                <p class="text-success fw-bold h4">$6.200</p>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </main>
-    
-    <section id="contacto" class="bg-light py-5 position-relative" style="z-index: 3;">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-12 col-md-6 col-lg-5">
-                    <div class="bg-white p-4 rounded shadow">
-                        <h3 class="text-center mb-4">Reserva tu Experiencia</h3>
-                        <form id="contactForm">
-                            <div class="mb-3">
-                                <label class="form-label">Nombre</label>
-                                <input type="text" class="form-control" required>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Email</label>
-                                <input type="email" class="form-control" required>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Mensaje</label>
-                                <textarea class="form-control" rows="3"></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-dark w-100 py-2">Enviar</button>
-                        </form>
-                    </div>
+
+    <section id="contacto" class="bg-light py-5">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-6 col-lg-5">
+            <div class="bg-white p-4 rounded shadow">
+              <h3 class="text-center mb-4">Reserva tu Experiencia</h3>
+              <form id="contactForm">
+                <div class="mb-3">
+                  <label class="form-label">Nombre</label>
+                  <input
+                    type="text"
+                    id="nombre"
+                    class="form-control"
+                    placeholder="Tu nombre"
+                    required
+                  />
                 </div>
+                <div class="mb-3">
+                  <label class="form-label">Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    class="form-control"
+                    placeholder="tu@email.com"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Mensaje</label>
+                  <textarea
+                    id="mensaje"
+                    class="form-control"
+                    rows="3"
+                  ></textarea>
+                </div>
+                <button type="submit" class="btn btn-dark w-100 py-2">
+                  Enviar Reserva
+                </button>
+              </form>
             </div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <script src="
+    <footer class="py-5 text-center">
+      <div class="container">
+        <div class="social-icons mb-3">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <p class="mb-0">
+          &copy; 2026 SaboresApp Restaurant. Todos los derechos reservados.
+        </p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      
+      function saludar() {
+        alert(
+          "¡Gracias por visitarnos! Desliza hacia abajo para ver nuestras delicias.",
+        );
+        
+        document.getElementById("main-title").innerText =
+          "¡La mejor experiencia de Sushi!";
+        document.getElementById("main-title").style.color = "#198754"; 
+      }
+
+      
+      const form = document.getElementById("contactForm");
+
+      form.addEventListener("submit", function (event) {
+       
+        event.preventDefault();
+
+        
+        const nombre = document.getElementById("nombre").value;
+        const email = document.getElementById("email").value;
+
+        
+        alert(
+          `¡Gracias, ${nombre}! Hemos recibido tu solicitud. Contactaremos a ${email} pronto.`,
+        );
+
+        
+        form.innerHTML = `<div class="text-center py-4">
+                                <i class="fas fa-check-circle text-success fa-3x mb-3"></i>
+                                <h4>Reserva Enviada</h4>
+                                <p>Te esperamos pronto en SaboresApp.</p>
+                              </div>`;
+      });
+    </script>
+    <script src="./assets/script.js"></script>
+  </body>
+</html>
